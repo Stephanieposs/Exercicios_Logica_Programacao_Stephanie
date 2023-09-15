@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe07</title>
+</head>
+<body>
+    <form action="">
+        <label for="idNumero">Digite um número: </label>
+        <input type="number" id="idNumero" name="nmNumero" value=""> <br><br>
+        
+        <input type="button" value="Pegar Numero" onclick="pegarNumero()"><br><br>
+
+
+        <output id="idOutputTexto"></output><br>
+        <output id="idOutputKm"></output><br>
+        <output id="idOutputHm"></output><br>
+        <output id="idOutputDam"></output><br>
+        <output id="idOutputDm"></output><br>
+        <output id="idOutputCm"></output><br>
+        <output id="idOutputMm"></output>
+
+    </form>
+    <script>
+
+        function pegarNumero(){
+            let numero = Number(document.getElementById("idNumero").value);
+
+
+            document.getElementById("idOutputTexto").value = ("A distância de "+numero+"m corresponde a:");
+            document.getElementById("idOutputKm").value = ((numero/1000)  + " Km ");
+            document.getElementById("idOutputHm").value = ((numero/100)  + " Hm ");
+            document.getElementById("idOutputDam").value = ((numero/10)  + " Dam ");
+            document.getElementById("idOutputDm").value = ((numero*10)  + " Dm ");
+            document.getElementById("idOutputCm").value = ((numero*100)  + " Cm ");
+            document.getElementById("idOutputMm").value = ((numero*1000)  + " Mm ");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe02</title>
+</head>
+<body>
+    <form action="">
+
+        <label for="idNome">Nome do Funcionário: </label>
+        <input type="text" id="idNome" name="nmNome" value=""> <br><br>
+
+        <label for="idSalario">Salário: </label>
+        <input type="number" id="idSalario" name="nmSalario" value=""> <br><br>
+
+        
+        <input type="button" value="Pegar Dados" onclick="pegarDados()"><br><br>
+
+        <label for="idSaida">Saida</label><br>
+        <input type="text" id="idSaida" name="nmSaida"> 
+
+
+    </form>
+    <script>
+        function pegarDados(){
+
+            let nome = document.getElementById("idNome").value;
+            let salario = document.getElementById("idSalario").value;
+
+            document.getElementById("idSaida").value = ("O funcionário "+ nome +" tem um salário de R$"
+            + salario +" em Junho");
+        }
+
+
+    </script>
+</body>
+</html>

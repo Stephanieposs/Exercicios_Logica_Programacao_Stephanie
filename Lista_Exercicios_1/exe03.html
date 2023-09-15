@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe03</title>
+</head>
+<body>
+    <form action="">
+
+        <label for="idNumero1">Digite um valor: </label>
+        <input type="number" id="idNumero1" name="nmNumero1" value=""> <br><br>
+
+        <label for="idNumero2">Digite outro valor: </label>
+        <input type="number" id="idNumero2" name="nmNumero2" value=""> <br><br>
+        
+        <input type="button" value="Pegar Numeros" onclick="pegarNumeros()"><br><br>
+
+        <label for="idSaida">Saida</label><br>
+        <input type="text" id="idSaida" name="nmSaida"> 
+
+        <output></output>
+
+    </form>
+    <script>
+
+        
+
+        function pegarNumeros(){
+
+            let numero1 = Number(document.getElementById("idNumero1").value);
+            let numero2 = Number(document.getElementById("idNumero2").value);
+
+            soma = numero1 + numero2;
+
+            document.getElementById("idSaida").value = ("A soma entre "+ numero1 +" e "+ numero2 +" é igual a "+ soma);
+        }
+
+    </script>
+</body>
+</html>
