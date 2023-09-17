@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe09</title>
+</head>
+<body>
+    <form action="">
+        <label for="idLargura">Largura: </label>
+        <input type="number" id="idLargura" name="nmLargura" value=""> <br><br>
+
+        <label for="idAltura">Altura: </label>
+        <input type="number" id="idAltura" name="nmAltura" value=""> <br><br>
+        
+        <input type="button" value="Calcular Área" onclick="calcularArea()"><br><br>
+
+
+        <output id="idOutputArea"></output><br>
+        <output id="idOutputBaldesTinta"></output>
+
+    </form>
+    <script>
+        function calcularArea(){
+            let altura = Number(document.getElementById("idAltura").value);
+            let largura = Number(document.getElementById("idLargura").value);
+
+            document.getElementById("idOutputArea").value = ("A área a ser pintada é de "+(altura*largura)+" metros quadrados")
+            document.getElementById("idOutputBaldesTinta").value = ("Você vai precisar de "+((altura*largura)/2)+" baldes de tinta")
+        }
+
+    </script>
+</body>
+</html>

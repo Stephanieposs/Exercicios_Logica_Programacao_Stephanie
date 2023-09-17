@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe10</title>
+</head>
+<body>
+    <form action="">
+        <label for="idPreco">Preço do produto: </label>
+        <input type="number" id="idPreco" name="nmPreco" value=""> <br><br>
+        
+        <input type="button" value="Calcule o preço promocional" onclick="calcularPreco()"><br><br>
+
+
+        <output id="idOutputPrecoPromocional"></output><br> 
+
+    </form>
+    <script>
+        function calcularPreco(){
+            let preco = Number(document.getElementById("idPreco").value);
+
+            desconto = preco * 0.05 
+
+            document.getElementById("idOutputPrecoPromocional").value = ("PREÇO PROMOCIONAL: R$ "+(preco-desconto))
+        }
+
+    </script>
+</body>
+</html>
