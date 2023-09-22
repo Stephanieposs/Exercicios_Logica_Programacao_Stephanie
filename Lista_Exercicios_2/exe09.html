@@ -6,14 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exe09</title>
 
-    
+    <style>
+
+        #idDisplay{
+            display: flex;
+        }
+    </style>
 
 </head>
 
 <body>
     <form action="">
-        <fieldset class="display">
-            <label for="">Menu:</label><br><br>
+
+        <div id="idDisplay">
+        <fieldset >
+            <legend>Menu</legend> <br>
+            
             <label for="idCirculo">1 - Área do Círculo</label><br><br>
             <label for="idRetangulo">2 - Área do Retângulo</label><br><br>
             <label for="idTrianguloRetangulo">3 - Área do Triângulo Retângulo</label><br><br>
@@ -30,22 +38,26 @@
 
         
 
-        <div class="display">
+        <fieldset>
+            <legend>Forneça as medidas</legend><br>
             <output id="idOutputMensagemEntrada1"></output><br>
             <input type="number" id="idEntrada1" name="nmEntrada1" value=""> <br><br>
 
             <output id="idOutputMensagemEntrada2"></output><br>
-            <input type="number" id="idEntrada2" name="nmEntrada2" value=""> <br><br>
+            <input type="number" id="idEntrada2" name="nmEntrada2" value=""> <br><br><br>
 
-            <input type="button" value="Calcular" onclick="calcularArea()"><br><br>
+            <input type="button" value="Calcular" onclick="calcularArea()"><br><br><br>
+
+
+            <label for="">A Área é: </label>
+            <output id="idOutputArea"></output><br>
+
+        </fieldset>
 
         </div>
 
+
         
-
-
-        <label for="">A Área é: </label>
-        <output id="idOutputArea"></output><br>
 
     </form>
     <script>
