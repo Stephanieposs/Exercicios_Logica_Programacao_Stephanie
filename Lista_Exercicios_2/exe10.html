@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe10</title>
+</head>
+<body>
+    <form action="">
+        <label for="idUsuario">Usuário:</label>
+        <input type="number" id="idUsuario" name="nmUsuario" value=""> <br><br>
+
+        <label for="idSenha">Senha:</label>
+        <input type="number" id="idSenha" name="nmSenha" value=""> <br><br>
+
+        <input type="button" value="Entrar" onclick="verificarUsuario()"><br><br>
+
+        <output id="idOutputMensagem"></output><br>
+
+    </form>
+    <script>
+
+        var Aluno1 = "Trocar123"
+        var Aluno2 = "Senha@123"
+        var Aluno3 = "123Trocar"
+
+        function verificarUsuario(){
+            let usuario = document.getElementById("idEntrada1").value;
+            let senha = document.getElementById("idEntrada1").value;
+
+            if( !(usuario == Aluno1 || usuario == Aluno2 || usuario == Aluno3)){
+                document.getElementById("idOutputMensagem").value = ("Usuário não cadastrado")
+
+            }else{
+                if((usuario==Aluno1 && senha=="Trocar123") || 
+                   (usuario==Aluno2 && senha=="Senha@123") ||
+                   (usuario==Aluno3 && senha=="123Trocar")){
+                    document.getElementById("idOutputMensagem").value = ("Acesso Permitido")
+
+                }else{
+                    document.getElementById("idOutputMensagem").value = ("Senha Incorreta")
+                }
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>

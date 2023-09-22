@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe04</title>
+</head>
+<body>
+    <form action="">
+        <label for="idNumero">Número:</label>
+        <input type="number" id="idNumero" name="nmNumero" value=""> <br><br>
+
+        <input type="button" value="Posição número" onclick="calcularPosicaoNumero()"><br><br>
+
+        <output id="idOutputNumero"></output><br>
+    </form>
+    <script>
+        function calcularPosicaoNumero(){
+            let numero = Number(document.getElementById("idNumero").value);
+
+            if(numero>= 30 && numero<=90){
+                document.getElementById("idOutputNumero").value = (numero + " está no intervalo")
+            }else{
+                document.getElementById("idOutputNumero").value = (numero + " não está no intervalo")
+            }
+        }
+
+    </script>
+</body>
+</html>

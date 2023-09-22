@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe08</title>
+</head>
+<body>
+    <form action="">
+        <label for="idPreco">Preço:</label>
+        <input type="number" id="idPreco" name="nmPreco" value=""> <br><br>
+
+        <input type="button" value="Valor da Venda" onclick="calcularValor()"><br><br>
+
+        <output id="idOutputValor"></output><br>
+
+    </form>
+    <script>
+        function calcularValor(){
+            let preco = Number(document.getElementById("idPreco").value);
+
+            if(preco<20){
+                document.getElementById("idOutputValor").value = ("O preço da venda é de: "+(preco*1.5))
+            }else{
+                document.getElementById("idOutputValor").value = ("O preço da venda é de: "+(preco*1.35))
+            }
+
+            
+        }
+
+    </script>
+</body>
+</html>

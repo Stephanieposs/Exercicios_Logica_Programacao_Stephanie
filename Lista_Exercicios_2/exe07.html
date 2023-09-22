@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe07</title>
+</head>
+<body>
+    <form action="">
+        <label for="idSalario">Salário:</label>
+        <input type="number" id="idSalario" name="nmSalario" value=""> <br><br>
+
+        <input type="button" value="Salário Líquido" onclick="calcularSalario()"><br><br>
+
+        <output id="idOutputSalario"></output><br>
+    </form>
+    <script>
+        function calcularSalario(){
+            let salario = Number(document.getElementById("idSalario").value);
+
+            let desconto = 0;
+
+            if(salario<= 600){
+                desconto=0;
+            }else if(salario>600 && salario<=1200){
+                desconto=0.25;
+            }else if(salario>1200 && salario<=2000){
+                desconto=0.3;
+            }else{
+                desconto=0.35;
+            }
+
+            let salarioLiquido= (salario*(1-desconto));
+
+            document.getElementById("idOutputSalario").value = ("O Salário Líquido é de: "+ salarioLiquido)
+
+        }
+
+
+    </script>
+</body>
+</html>
