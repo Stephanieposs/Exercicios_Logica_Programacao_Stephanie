@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe04</title>
+</head>
+<body>
+    <form action="">
+        <label for="idNumero">Número:</label>
+        <input type="number" id="idNumero" name="nmNumero" value=""> <br><br>
+
+        <input type="button" value="Ler o número" onclick="verNumero()"><br><br>
+
+        <output id="idOutputNumero"></output><br>
+
+    </form>
+    <script>
+
+        function verNumero(){
+            let numero = Number(document.getElementById("idNumero").value);
+
+            if((numero%2)!= 0){
+                document.getElementById("idOutputNumero").value = (numero+" é ÍMPAR");
+            }else{
+                document.getElementById("idOutputNumero").value = (numero+" é PAR");
+            }
+        }
+
+    </script>
+</body>
+</html>

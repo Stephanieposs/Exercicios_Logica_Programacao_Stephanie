@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe01</title>
+</head>
+<body>
+    <form action="">
+        <label for="idVelocidade">Velocidade do carro:</label>
+        <input type="number" id="idVelocidade" name="nmVelocidade" value=""> <br><br>
+
+        <input type="button" value="Multa" onclick="calcularMulta()"><br><br>
+
+        <output id="idOutputMulta"></output><br>
+        <output id="idOutputValorMulta"></output><br>
+
+    </form>
+    <script>
+        
+        function calcularMulta(){
+            let velocidade = Number(document.getElementById("idVelocidade").value);
+
+            if(velocidade>80){
+                document.getElementById("idOutputMulta").value = ("Você foi multado");
+                document.getElementById("idOutputValorMulta").value = ("O valor da sua multa é de: R$"+(velocidade-80)*5);
+            }else{
+                document.getElementById("idOutputMulta").value = ("Você não foi multado");
+                document.getElementById("idOutputValorMulta").value = ("");
+            }
+        }
+
+    </script>
+</body>
+</html>

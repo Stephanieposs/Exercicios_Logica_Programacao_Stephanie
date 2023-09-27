@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe02</title>
+</head>
+<body>
+    <form action="">
+        <label for="idNascimento">Ano de nascimento:</label>
+        <input type="number" id="idNascimento" name="nmNascimento" value=""> <br><br>
+
+        <input type="button" value="Posso Votar" onclick="calcularIdade()"><br><br>
+
+        <output id="idOutputVotar"></output><br>
+
+    </form>
+    <script>
+
+        function calcularIdade(){
+            let ano = Number(document.getElementById("idNascimento").value);
+
+            let idade = 2023-ano;
+
+            if(idade<16){
+                document.getElementById("idOutputVotar").value = ("Você não pode votar");
+            }else{
+                document.getElementById("idOutputVotar").value = ("Você pode votar");
+            }
+        }
+    </script>
+</body>
+</html>
