@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe06</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <label for="idAno">Ano:</label>
+            <input type="number" id="idAno" name="nmAno" value=""> <br><br>
+
+            <input type="button" value="Situação do alistamento" onclick="verAno()"><br><br>
+
+            <output id="idOutputAno"></output><br>
+        </fieldset>
+
+    </form>
+    <script>
+        /* Escreva um programa que leia o ano de nascimento de um rapaz 
+        e mostre a sua situação em relação ao alistamento militar.
+
+        Se estiver antes dos 18 anos, mostre em quantos anos faltam para o alistamento.
+        Se já tiver depois dos 18 anos, mostre quantos anos já se passaram do alistamento.*/
+
+        function verAno(){
+            let ano = Number(document.getElementById("idAno").value);
+
+            let idade = 2023-ano;
+
+            if ((idade)<=18) {
+                document.getElementById("idOutputAno").value = ("Faltam "+(18-idade)+" anos para o alistamento");
+            } else {
+                document.getElementById("idOutputAno").value = ("Já se passaram "+(idade-18)+" anos do alistamento");
+            }
+        }
+
+
+        
+    </script>
+</body>
+</html>
