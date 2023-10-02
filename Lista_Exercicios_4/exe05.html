@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe05</title>
+</head>
+
+<body>
+    <form action="">
+
+        <label for="idValor">Digite um valor: </label>
+        <input type="number" id="idValor" name="nmValor" value="" min="1" > <br><br>
+
+        <input type="button" value="Contar" onclick="contar()"><br>
+        <output id="idOut"></output><br>
+
+    </form>
+    <script>
+        /* pergunte ao usuário um número inteiro e positivo qualquer e mostre uma contagem até esse valor
+        Ex: Digite um valor: 77
+        Contagem: "Inicio 1 2 3 4 5 6 7 ... 75 76 77 Acabou!"*/
+
+        function contar() {
+            let numero = document.getElementById("idValor").value;
+            let output = "Inicio ";
+            if (numero <= 0) {
+                document.getElementById("idOut").value = ("Número inválido");
+            } else {
+                for (let i = 1; i <= numero; i++) {
+                    output += (i + " ");
+                }
+                console.log(output);
+                output += ("Acabou!");
+                document.getElementById("idOut").value = ("Contagem: " + output);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe09</title>
+</head>
+
+<body>
+    <form action="">
+
+        <label for="idValorInicial">Digite o valor inicial:</label>
+        <input type="number" id="idValorInicial" name="nmValorInicial" value=""> <br><br>
+
+        <label for="idValorFinal">Digite o valor final:</label>
+        <input type="number" id="idValorFinal" name="nmValorFinal" value=""> <br><br>
+
+        <label for="idValorIncremento">Digite o incremento:</label>
+        <input type="number" id="idValorIncremento" name="nmValorIncremento" value=""> <br><br>
+
+        <input type="button" value="Contar" onclick="contar()"><br>
+        <output id="idOut"></output><br>
+
+    </form>
+    <script>
+        /*O programa acima vai ter um problema quando digitarmos 
+        o primeiro valor maior que o último. 
+        Resolva esse problema com um código que funcione em qualquer situação.*/
+
+        function contar() {
+            let valorInicial = document.getElementById("idValorInicial").value;
+            let valorFinal = document.getElementById("idValorFinal").value;
+            let inc = document.getElementById("idValorIncremento").value;
+
+            let output = "";
+            if(valorFinal>valorInicial){
+                for (let i = valorInicial; i <= valorFinal; i+=inc) {
+                    output += (i + " ");
+                }
+            }else{
+                for (let i = valorInicial; i >= valorFinal; i-=inc) {
+                    output += (i + " ");
+                }
+            }
+            
+            output += ("Acabou!");
+            console.log(output);
+            document.getElementById("idOut").value = ("Contagem: " + output);
+
+        }
+    </script>
+</body>
+
+</html>

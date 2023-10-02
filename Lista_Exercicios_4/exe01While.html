@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe01While</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="button" value="Mensagem" onclick="contar()"><br>
+        <output id="idOut"></output><br>
+        
+    </form>
+    <script>
+        // "Inicio 5 6 7 8 9 10 11 12 Acabou!".
+        function contar() {
+            console.log("Inicio ");
+            
+            
+            let output = "Inicio ";
+            let contador = 4;
+            while( contador < 12) {
+                contador++;
+                output += (contador + " ");
+                console.log(contador + " ");
+                
+            }
+            console.log("Acabou! ");
+            output += ("Acabou!");
+            document.getElementById("idOut").value = (output);
+        }
+    </script>
+</body>
+
+</html>

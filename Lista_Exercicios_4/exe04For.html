@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe04For</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="button" value="Mensagem" onclick="contar()"><br>
+        <output id="idOut"></output><br>
+        
+    </form>
+    <script>
+        // "Inicio 100 95 90 85 80 ... 0 Acabou!".
+        function contar() {
+            let output = "Inicio ";
+            for (let i = 100; i >= 0; i-=5) {
+                output += (i + " ");
+            }
+            console.log(output);
+            output += ("Acabou!");
+            document.getElementById("idOut").value = (output);
+        }
+    </script>
+</body>
+
+</html>

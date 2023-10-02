@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe01For</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="button" value="Mensagem" onclick="contar()"><br>
+        <output id="idOut"></output><br>
+        
+    </form>
+    <script>
+        // "Inicio 5 6 7 8 9 10 11 12 Acabou!".
+        function contar() {
+            
+            let output = "Inicio ";
+            for (let i = 5; i <= 12; i++) {
+                output += (i + " ");
+            }
+            console.log(output);
+            output += ("Acabou!");
+            document.getElementById("idOut").value = (output);
+        }
+    </script>
+</body>
+
+</html>
