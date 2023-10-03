@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <output id="idOut"></output>
+    <script>
+        var out = document.getElementById("IdOut");
+        var contNumMaior5 = 0;
+        var contNumDiv3 = 0;
+        var msn = "";
+
+        for(let i =0; i <20; i++){
+            var numSorteado = Math.round(Math.random()*10);
+            var numSorteado = parseInt(Math.random()*11);
+            msn = msn + numSorteado + " ";
+
+            if(numSorteado > 5){
+                contNumMaior5++
+            }
+            if(numSorteado % 3 == 0){
+                contNumDiv3++
+            }
+        }
+
+        out.value = msn + "\n Qtd Numeros maiores que 5: " +contNumMaior5
+                "\n Qtd Numeros divisíveis por 3: " + contNumDiv3;
+
+    </script>
+</body>
+</html>

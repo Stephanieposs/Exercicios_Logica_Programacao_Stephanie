@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe09</title>
+</head>
+<body>
+    <label for="idTemperatura">Temperatura:</label>
+    <input type="number" id="idTemperatura" name="ndTemperatura" value=""> <br><br>
+
+    <label for="">Temperatura fornecida:</label><br>
+    <input type="radio" id="idRadioTemp" name="nmTipoTemperatura" value="Celsius" checked> 
+    <label for="idRadioCelsius">Celsius</label><br>
+
+    <input type="radio" id="idRadioTemp" name="nmTipoTemperatura" value="Fahrenheit"> 
+    <label for="idRadioFahrenheit">Fahrenheit</label><br>
+
+    <input type="radio" id="idRadioTemp" name="nmTipoTemperatura" value="Kelvin"> 
+    <label for="idRadioKelvin">Kelvin</label><br><br>
+
+    <input type="button" value="Calcular Temperatura" onclick="calcularTemperatura()"><br>
+        
+    <output id="idOut"></output>
+    <script>
+        function calcularTemperatura(){
+            let out = document.getElementById("idOut");
+            let temperatura = document.getElementById("idTemperatura").value;
+            let tempFornecida = document.querySelector("input[name=nmTipoTemperatura]:checked").value;
+
+            let outCelsius = 0;
+            let outFahrenheit = 0;
+            let outKelvin = 0;
+            // transformado tudo para celsius
+            if(tempFornecida == "Celsius"){
+                outCelsius = temperatura;
+                outFahrenheit = (9*temperatura+160)/5
+                outKelvin = temperatura+273
+            }else if(tempFornecida == "Fahrenheit"){
+                outCelsius = ((temperatura * 5)-160)/9
+                outFahrenheit = temperatura;
+                outKelvin = ((temperatura * 5)-160)/9 + 273
+            }else if(tempFornecida == "Kelvin"){
+                outCelsius = temperatura-273 
+                outFahrenheit = (((temperatura - 273) * 9) + 160)/5
+                outKelvin = temperatura;
+            }
+
+
+            out.value = "Celsius: "+ outCelsius + "\n Fahrenheit: "+ outFahrenheit + "\n Kelvin: "+ outKelvin;
+
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe07</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="idPalpite">Descobrir número:</label>
+        <input type="text" id="idPalpite" name="nmPalpite" value=""> <br><br>
+
+        <input type="button" value="Palpite" onclick="verificarPalpite()"><br><br>
+
+        <output id="idOutputMensagem"></output><br>
+
+    </form>
+    <script>
+
+        var contadorTentativa = 0;
+        var numero = (Math.random() * 11).toFixed(0);
+
+        function verificarPalpite() {
+            
+            let palpite = Number(document.getElementById("idPalpite").value);
+            
+            console.log(numero)
+            console.log(palpite)
+            if (contadorTentativa <= 3) {
+                contadorTentativa++;
+                if (palpite > numero) {
+                    document.getElementById("idOutputMensagem").value = ("Palpite maior que o número")
+                    contadorTentativa++;
+                } else if (palpite < numero) {
+                    document.getElementById("idOutputMensagem").value = ("Palpit menor que o número")
+                } else if (palpite = numero) {
+                    document.getElementById("idOutputMensagem").value = ("Você acertou")
+
+                }
+
+            } else {
+                document.getElementById("idOutputMensagem").value = ("Perdeu o jogo")
+            }
+        }
+    </script>
+</body>
+
+</html>

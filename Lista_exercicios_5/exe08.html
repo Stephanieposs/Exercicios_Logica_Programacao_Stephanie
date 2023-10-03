@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe08</title>
+</head>
+<body>
+    <label for="idTemperatura">Temperatura em Celsius:</label>
+    <input type="number" id="idTemperatura" name="ndTemperatura" value=""> <br><br>
+
+    <input type="button" value="Fahrenheit" onclick="calcularTemperatura()"><br>
+        
+    <output id="idOut"></output>
+    <script>
+        function calcularTemperatura(){
+            let out = document.getElementById("idOut");
+            let temperatura = document.getElementById("idTemperatura").value;
+
+            let fahrenheit = ((9*temperatura)+160)/5 ;
+
+            out.value = fahrenheit;
+
+        }
+
+    </script>
+</body>
+</html>

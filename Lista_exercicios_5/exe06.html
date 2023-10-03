@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe06</title>
+</head>
+
+<body>
+    <label for="idIdade">Idade:</label>
+    <input type="number" id="idIdade" name="nmIdade" value=""> <br><br>
+
+    <input type="button" value="Inserir Idade" onclick="inserirIdade()"><br>
+
+    <output id="idOut"> </output>
+
+    <script>
+        /*Crie um algoritmo que leia a idade de 'n' pessoas, mostrando no final:
+            a) Qual é a média de idade do grupo
+            b) Quantas pessoas tem mais de 18 anos
+            c) Quantas pessoas tem menos de 5 anos
+            d) Qual foi a maior idade lida*/
+
+        
+        var somaIdades = 0;
+        var contPessoas = 0;
+        var mais18 = 0;
+        var menos5= 0;
+        var maiorIdade = -10000000000;
+
+        function inserirIdade() {
+            let out = document.getElementById("IdOut");
+            let idade = Number(document.getElementById("idIdade").value);
+
+            somaIdades += idade; 
+            console.log(somaIdades + "soma idades")
+            contPessoas++; 
+            console.log(contPessoas +"num pessoas")
+            let media = (somaIdades/contPessoas);
+            console.log(media + "media")
+            if(idade<5){
+                menos5++;
+            }
+            if(idade>18){
+                mais18++;
+            }
+
+            if (idade > maiorIdade) { 
+                maiorIdade = idade;
+                console.log(maiorIdade +"maior idade")
+            } 
+
+            document.getElementById("idOut").value = "Média das idades: "+ media +"     Pessoas com mais de 18 anos: "+mais18+
+                    "\n     Pessoas com menos de 5 anos: "+menos5+ "\n       Maior idade: "+maiorIdade;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe05</title>
+</head>
+
+<body>
+    <label for="idPreco">Preços:</label>
+    <input type="number" id="idPreco" name="nmPreco" value=""> <br><br>
+
+    <input type="button" value="Inserir Preço" onclick="inserirPreco()"><br>
+
+    <output id="idOut"> </output>
+
+    <script>
+        /*Crie um aplicativo que leia o preço de 'n' produtos. 
+        No final, mostre na tela qual foi o maior e qual foi o menor preço digitados.*/
+
+        var maiorPreco = -1000000;
+        var menorPreco = 10000000;
+
+        function inserirPreco() {
+            let out = document.getElementById("IdOut");
+
+            let preco = Number(document.getElementById("idPreco").value);
+
+            if (preco > maiorPreco) {
+                maiorPreco = preco;
+                console.log(" maior preco ");
+            } 
+            
+            if (preco < menorPreco) {
+                menorPreco = preco;
+                console.log(" menor preco ");
+            }
+
+            document.getElementById("idOut").value = "Maior Preço: " + maiorPreco + "\n   Menor Preço: " + menorPreco;
+        }
+    </script>
+</body>
+
+</html>
