@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe10</title>
+</head>
+
+<body>
+    <label for="idValor">Valor:</label>
+    <input type="number" id="idValor" name="nmValor" value=""> <br><br>
+
+    <fieldset>
+        <legend>Moeda entrada:</legend>
+        <input type="radio" id="idRadioMoedaEntrada" name="nmMoedaEntrada" value="Reais" checked>
+        <label for="idRadioReais">Reais</label><br>
+
+        <input type="radio" id="idRadioMoedaEntrada" name="nmMoedaEntrada" value="Dolares Americanos">
+        <label for="idRadioDolarEua">Dólares Americanos</label><br>
+
+        <input type="radio" id="idRadioMoedaEntrada" name="nmMoedaEntrada" value="Euro">
+        <label for="idRadioEuro">Euros</label><br>
+
+        <input type="radio" id="idRadioMoedaEntrada" name="nmMoedaEntrada" value="Libras">
+        <label for="idRadioLibra">Libras Esterlinas</label><br>
+
+        <input type="radio" id="idRadioMoedaEntrada" name="nmMoedaEntrada" value="Dolares Canadenses">
+        <label for="idRadioDolarCanada">Dólares Canadenses</label><br><br>
+
+    </fieldset>
+    <fieldset>
+        <legend>Moeda conversão:</legend>
+        <input type="radio" id="idRadioMoedaConversao" name="nmMoedaConversao" value="Reais">
+        <label for="idRadioReais">Reais</label><br>
+
+        <input type="radio" id="idRadioMoedaConversao" name="nmMoedaConversao" value="Dolares Americanos">
+        <label for="idRadioDolarEua">Dólares Americanos</label><br>
+
+        <input type="radio" id="idRadioMoedaConversao" name="nmMoedaConversao" value="Euros" checked>
+        <label for="idRadioEuro">Euros</label><br>
+
+        <input type="radio" id="idRadioMoedaConversao" name="nmMoedaConversao" value="Libras">
+        <label for="idRadioLibra">Libras Esterlinas</label><br>
+
+        <input type="radio" id="idRadioMoedaConversao" name="nmMoedaConversao" value="Dolares Canadenses">
+        <label for="idRadioDolarCanada">Dólares Canadenses</label><br><br>
+
+    </fieldset>
+
+    <input type="button" value="Converter" onclick="converter()"><br>
+
+    <output id="idOut"></output>
+    <script>
+        /*O programa deverá permitir conversões entre Real,
+         Dólar Americano, Euro, Libra Esterlina e Dólar Canadense.
+        O usuário pode selecionar o tipo de moeda de entrada e
+         selecionar o tipo para o qual ele deseja converter.*/
+
+        function converter() {
+            let out = document.getElementById("idOut");
+            let valor = Number(document.getElementById("idValor").value);
+            let moedaEntrada = document.querySelector("input[name=nmMoedaEntrada]:checked").value;
+            let moedaConversao = document.querySelector("input[name=nmMoedaConversao]:checked").value;
+
+            let valorOut = 0;
+
+            // conversão das entradas para reais
+            let reaisParaConversao = 0;
+            switch (moedaEntrada) {
+                case "Reais": //-------Reais-----
+                    reaisParaConversao=valor;
+                    console.log("entrou na conversao" + reaisParaConversao);
+                    break
+                case "Dolares Americanos": //-------Dolares EUA------
+                    reaisParaConversao = 5.15*valor;
+                    console.log("entrou na conversao");
+                    break
+                case "Euro": //--------Euros----------
+                    reaisParaConversao = 5.40*valor;
+                    console.log("entrou na conversao");
+                    break
+                case "Libras": //-----Libras-----------
+                    reaisParaConversao = 6.23*valor;
+                    console.log("entrou na conversao");
+                    break
+                case "Dolares Canadenses": //-Dolares Canadenses-----
+                    reaisParaConversao = 3.76*valor;
+                    console.log("entrou na conversao");
+                    break
+            }
+
+            // ----------------Conversão para a moeda final-----------------
+            switch(moedaConversao){ 
+                case "Reais": //------------Reais--------------
+                    valorOut = reaisParaConversao;
+                    console.log("entrou no out");
+                    break
+                case "Dolares Americanos": //--Dolares EUA-----
+                    valorOut = reaisParaConversao*0.195;
+                    console.log("entrou no out");
+                    break
+                case "Euros": //------------Euros-----
+                    valorOut = 0.186*reaisParaConversao;
+                    console.log("entrou no out" + valorOut);
+                    break
+                case "Libras": //--------Libras----------------
+                    valorOut = 0.161*reaisParaConversao;
+                    console.log("entrou no out");
+                    break
+                case "Dolares Canadenses": //Dolares Canadenses----
+                    valorOut = 0.27*reaisParaConversao;
+                    console.log("entrou no out");
+                    break
+
+            }
+
+            out.value = valor+ " " + moedaEntrada + " vale: " + valorOut.toFixed(2) +" "+ moedaConversao;
+
+        }
+
+    </script>
+</body>
+
+</html>
