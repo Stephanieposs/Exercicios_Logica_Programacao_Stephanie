@@ -52,10 +52,6 @@
 
     <output id="idOut"></output>
     <script>
-        /*O programa deverá permitir conversões entre Real,
-         Dólar Americano, Euro, Libra Esterlina e Dólar Canadense.
-        O usuário pode selecionar o tipo de moeda de entrada e
-         selecionar o tipo para o qual ele deseja converter.*/
 
         function converter() {
             let out = document.getElementById("idOut");
@@ -65,58 +61,56 @@
 
             let valorOut = 0;
 
-            // conversão das entradas para reais
+            // Conversão das entradas para reais
             let reaisParaConversao = 0;
             switch (moedaEntrada) {
-                case "Reais": //-------Reais-----
+                case "Reais": 
                     reaisParaConversao=valor;
                     console.log("entrou na conversao" + reaisParaConversao);
                     break
-                case "Dolares Americanos": //-------Dolares EUA------
+                case "Dolares Americanos": 
                     reaisParaConversao = 5.15*valor;
                     console.log("entrou na conversao");
                     break
-                case "Euro": //--------Euros----------
+                case "Euro": 
                     reaisParaConversao = 5.40*valor;
                     console.log("entrou na conversao");
                     break
-                case "Libras": //-----Libras-----------
+                case "Libras": 
                     reaisParaConversao = 6.23*valor;
                     console.log("entrou na conversao");
                     break
-                case "Dolares Canadenses": //-Dolares Canadenses-----
+                case "Dolares Canadenses": 
                     reaisParaConversao = 3.76*valor;
                     console.log("entrou na conversao");
                     break
             }
 
-            // ----------------Conversão para a moeda final-----------------
+            // Conversão para a moeda final
             switch(moedaConversao){ 
-                case "Reais": //------------Reais--------------
+                case "Reais": 
                     valorOut = reaisParaConversao;
                     console.log("entrou no out");
                     break
-                case "Dolares Americanos": //--Dolares EUA-----
+                case "Dolares Americanos": 
                     valorOut = reaisParaConversao*0.195;
                     console.log("entrou no out");
                     break
-                case "Euros": //------------Euros-----
+                case "Euros": 
                     valorOut = 0.186*reaisParaConversao;
                     console.log("entrou no out" + valorOut);
                     break
-                case "Libras": //--------Libras----------------
+                case "Libras":
                     valorOut = 0.161*reaisParaConversao;
                     console.log("entrou no out");
                     break
-                case "Dolares Canadenses": //Dolares Canadenses----
+                case "Dolares Canadenses": 
                     valorOut = 0.27*reaisParaConversao;
                     console.log("entrou no out");
                     break
-
             }
 
             out.value = valor+ " " + moedaEntrada + " vale: " + valorOut.toFixed(2) +" "+ moedaConversao;
-
         }
 
     </script>
