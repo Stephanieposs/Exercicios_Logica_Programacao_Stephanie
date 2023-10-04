@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe03</title>
+</head>
+<body>
+    <output id="idOut"></output>
+    <script>
+        let out = document.getElementById("idOut");
+        var numero = [];
+      
+        
+        for(let cont = 0; cont<10; cont++){
+            if(cont%2 == 0){
+                numero[cont] = 5; 
+            }else{
+                numero[cont] = 3;
+            }
+            
+            
+        }
+
+        out.value = numero;  
+
+    </script>
+</body>
+</html>

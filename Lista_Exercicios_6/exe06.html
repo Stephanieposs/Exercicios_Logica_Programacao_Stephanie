@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe06</title>
+</head>
+
+<body>
+    <label for="idNome">Nome:</label>
+    <input type="text" id="idNome" name="nmNome" value=""> <br><br>
+
+    <input type="button" value="Inserir nome" onclick="pegarNomes()"><br><br>
+
+    <input type="button" value="Mostrar nomes" onclick="mostrarNomes()"><br>
+
+    <output id="idOut"></output>
+    <script>
+        let out = document.getElementById("idOut");
+        var nomesOrdem = [];
+        var nomesInversos = [];
+        var contadorVezes = 0;
+
+        function pegarNomes() {
+            let nome = document.getElementById("idNome").value;
+            nomesOrdem[contadorVezes] = nome;
+            // console.log("pegar nome" + nome + nomesOrdem[contadorVezes], contadorVezes)
+            contadorVezes++
+        }
+        function mostrarNomes() {
+
+            let contInv = nomesOrdem.length - 1;
+            for (let cont = 0; cont <= nomesOrdem.length -1; cont++) { 
+                nomesInversos[cont] = nomesOrdem[contInv]
+                contInv--
+            }
+            console.log(nomesInversos)
+
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe04</title>
+</head>
+
+<body>
+    <output id="idOut"></output>
+    <script>
+        let out = document.getElementById("idOut");
+        var numero = [1];
+
+        // Fibonacci
+
+        let ultimoNum = 1;
+        let penultimoNum = 0;
+
+        let sequenciaFibonacci = 0;
+
+
+
+        for (let cont = 1; cont < 16; cont++) {
+
+            for (let i = 2; i < 3; i++) {
+                sequenciaFibonacci = (ultimoNum + penultimoNum);
+                penultimoNum = ultimoNum;
+                ultimoNum = sequenciaFibonacci;
+            }
+
+            numero[cont] = sequenciaFibonacci
+
+        }
+
+        out.value = numero;
+
+    </script>
+</body>
+
+</html>
