@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe01</title>
+</head>
+<body>
+    <label for="idNumero">Nota:</label>
+    <input type="number" id="idNumero" name="nmNumero" value=""> <br><br>
+
+    <input type="button" value="Inserir nota" onclick="pegarNota()"><br><br>
+
+    <input type="button" value="Mostrar dados" onclick="mostrarDados()"><br>
+
+    <output id="idOut"></output>
+    <script>
+        let out = document.getElementById("idOut");
+        var notas = [];
+        var somaNotas = 0;
+        var maiorNota = 0;
+        var posicoesMaiorNota = " ";
+        
+        var contadorVezes = 0;
+
+        function pegarNota() {
+            let nota = Number(document.getElementById("idNumero").value);
+            notas[contadorVezes] = nota;
+            somaNotas += nota;
+
+            if(nota > maiorNota){
+                maiorNota = nota;
+            }
+
+
+            contadorVezes++
+        }
+
+        function mostrarDados(){
+            // media da turma, quantos alunos acima da media,
+            // maior nota, posições da maior nota
+            let media = somaNotas / notas.length ;
+            
+            console.log(somaNotas)
+            console.log(" media " + media)
+            let alunosAcimaMedia = 0;
+
+
+            for(let index = 0; index<=notas.length; index++){
+                if(notas[index] == maiorNota){
+                    posicoesMaiorNota = posicoesMaiorNota + index + " "
+                }
+                if(notas[index] > media){
+                    alunosAcimaMedia++
+                }
+            }
+
+            
+
+            out.value = "A média da turma é: "+media+"\n " 
+                +alunosAcimaMedia+" alunos estão acima da média da turma"+"\n "+
+                " A maior nota digitada foi: "+maiorNota+" e ela aparece nas seguintes posições: "+
+                posicoesMaiorNota
+        }
+
+
+
+    </script>
+</body>
+</html>
