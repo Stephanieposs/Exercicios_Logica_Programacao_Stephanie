@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe07</title>
+</head>
+
+<body>
+    <label for="idNumero">Número:</label>
+    <input type="text" id="idNumero" name="nmNumero" value=""> <br><br>
+
+    <input type="button" value="Inserir número" onclick="pegarNumero()"><br><br>
+
+    <input type="button" value="Mostrar números" onclick="mostrarNumeros()"><br>
+
+    <output id="idOut"></output>
+    <script>
+        /*Escreva um programa que leia "n" números e guarde-os em um vetor. 
+        No final, mostre o vetor inteiro na tela e 
+        em seguida mostre em que posições foram digitados valores que são múltiplos de 10.*/
+        
+        let out = document.getElementById("idOut");
+        var numeros = [];
+        
+        var contadorVezes = 0;
+
+        function pegarNumero() {
+            let numero = document.getElementById("idNumero").value;
+            numeros[contadorVezes] = numero;
+            
+            contadorVezes++
+        }
+
+        function mostrarNumeros() {
+            let posicoesMultiplos10 = "";
+            for (let cont = 0; cont <= numeros.length -1; cont++) { 
+                if(numeros[cont] % 10 == 0 ){
+                    posicoesMultiplos10 += cont + " "
+                }
+
+            }
+            
+            out.value = "Números: "+numeros + "\n Posições com valores múltiplos de 10: "+posicoesMultiplos10;
+            
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe08</title>
+</head>
+
+<body>
+    <label for="idNumero">Número:</label>
+    <input type="text" id="idNumero" name="nmNumero" value=""> <br><br>
+
+    <input type="button" value="Enviar número" onclick="enviarNumero()"><br><br>
+
+    <output id="idOut"></output>
+    <script>
+       
+        let out = document.getElementById("idOut");
+        
+        function enviarNumero() {
+            let numeros = [];
+            
+            
+            for (let i = 0; i < 30; i++) {
+                numeros[i] = (Math.random() * 11).toFixed(0);
+            }
+            console.log(numeros);
+
+
+
+            let numero = document.getElementById("idNumero").value;
+            
+            let posicoesChave = " ";
+            let contChave = 0;
+
+            for (let cont = 0; cont < 30; cont++) {
+                if (numeros[cont] == numero) {
+                    posicoesChave = posicoesChave + cont + " ";
+                    console.log("Posicao Chave" + posicoesChave)
+                    contChave++;
+                    console.log("contChave " + contChave)
+                }
+
+            }
+
+            out.value = "Posições com o número: " + posicoesChave + "\n A chave foi sorteada " + contChave + " vezes";
+        }
+
+
+    </script>
+</body>
+
+</html>
