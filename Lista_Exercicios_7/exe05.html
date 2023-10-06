@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe05</title>
+</head>
+
+<body>
+    <label for="idNumero">Número:</label>
+    <input type="number" id="idNumero" name="nmNumero" value=""> <br><br>
+
+    <label for="">Ordenar:</label><br>
+    <input type="radio" id="idOrdemCresc" name="nmOrdem" value="Cresc" checked>
+    <label for="idOrdem">Crescente</label><br>
+
+    <input type="radio" id="idOrdemDecresc" name="nmOrdem" value="Decres">
+    <label for="idOrdem">Decrescente</label><br><br>
+
+
+    <input type="button" value="Inserir número" onclick="pegarNumero()"><br><br>
+
+    <input type="button" value="Ordenar" onclick="mostrarOrdem()"><br>
+
+    <output id="idOut"></output>
+
+    <script>
+        let out = document.getElementById("idOut");
+        var numeros = [];
+
+        var contadorVezes = 0;
+
+        function pegarNumero() {
+            let numero = Number(document.getElementById("idNumero").value);
+
+            numeros[contadorVezes] = numero;
+
+            contadorVezes++
+        }
+
+        function mostrarOrdem() {
+            let ordem = document.querySelector("input[name=nmOrdem]:checked").value
+
+            let decrescente = [];
+            let bolha = 0;
+
+
+            if (ordem == "Cresc") {
+                // ordenando numeros[] para crescente
+                for (let index = 0; index < 10; index++) {
+                    if (numeros[index] < numeros[index - 1]) {
+                        bolha = numeros[index];
+                        numeros[index] = numeros[index - 1];
+                        numeros[index - 1] = bolha;
+                        bolha = 0;
+                        index = 0;
+                    }
+                }
+                console.log(numeros)
+                out.value = "Crescente: "+numeros
+            } else {
+                // fazendo vetor decrescente
+                let contInv = 9;
+                for (let cont = 0; cont < 10; cont++) {
+                    decrescente[contInv] = numeros[cont]
+                    contInv--
+                }
+
+                console.log(decrescente)
+                out.value = "Decrescente: "+decrescente
+            }
+
+            
+        }
+
+
+
+    </script>
+</body>
+
+</html>

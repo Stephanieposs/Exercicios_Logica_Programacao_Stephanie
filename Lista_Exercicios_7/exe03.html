@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe03</title>
+</head>
+
+<body>
+    <label for="idNome">Nome:</label>
+    <input type="text" id="idNome" name="nmNome" value=""> <br><br>
+
+
+    <input type="radio" id="idSexoFem" name="nmSexo" value="F" checked>
+    <label for="idIdade">Feminino</label><br>
+
+    <input type="radio" id="idSexoMasc" name="nmSexo" value="M">
+    <label for="idIdade">Masculino</label><br><br>
+
+
+    <label for="idSalario">Salário:</label>
+    <input type="number" id="idSalario" name="nmSalario" value=""> <br><br>
+
+    <input type="button" value="Inserir dados" onclick="pegarDados()"><br><br>
+
+    <input type="button" value="Mostrar dados" onclick="mostrarMulheres5()"><br>
+
+    <output id="idOutNomes"></output><br>
+    <output id="idOutSalarios"></output>
+    <script>
+
+        var nomes = [];
+        var sexos = [];
+        var salarios = [];
+
+        var contadorVezes = 0;
+
+        function pegarDados() {
+            let nome = document.getElementById("idNome").value;
+            let sexo = document.querySelector("input[name=nmSexo]:checked").value
+            let salario = Number(document.getElementById("idSalario").value);
+
+            nomes[contadorVezes] = nome;
+            sexos[contadorVezes] = sexo;
+            salarios[contadorVezes] = salario;
+
+            console.log(nomes)
+            console.log(sexos)
+            console.log(salarios)
+
+            contadorVezes++
+
+        }
+
+        function mostrarMulheres5() {
+            let dadosMulheres5 = "Mulheres com salários acima de 5 mil: " + "\n "; 
+
+            for (let index = 0; index <= nomes.length; index++) {
+                if (salarios[index] > 5000 && sexos[index] == "F") {
+
+                    dadosMulheres5 += ("Nome: "+nomes[index]+" - Salário: "+salarios[index]+ "\n ")
+
+                }
+            }
+            console.table(dadosMulheres5)
+            //console.table(idadesMenores)
+
+            document.getElementById("idOutNomes").value = dadosMulheres5;
+            //document.getElementById("idOutIdades").value = idadesMenores
+        }
+
+
+
+    </script>
+</body>
+
+</html>
