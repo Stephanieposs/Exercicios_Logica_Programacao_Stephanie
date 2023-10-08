@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe08</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="idDistancia">Distância para percorrer (km):</label>
+        <input type="number" id="idDistancia" name="nmDistancia" value=""> <br><br>
+
+        <input type="button" value="Calcular Preço" onclick="calcularPreco()"><br><br>
+
+        <output id="idOut"></output><br>
+
+    </form>
+    <script>
+        
+        function calcularPreco(){
+            let distancia = Number(document.getElementById("idDistancia").value)
+            let preco = 0;
+            if(distancia<=200){
+                preco = distancia*0.5
+            }else{
+                preco = distancia*0.45
+            }
+
+            document.getElementById("idOut").value = "O preço da passagem é: R$ "+preco
+        }
+
+    </script>
+</body>
+
+</html>

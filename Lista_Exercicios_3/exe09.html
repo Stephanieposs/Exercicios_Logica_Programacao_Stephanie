@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe09</title>
+</head>
+
+<body>
+    <form action="">
+        <fieldset>
+            <label for="idReta1">Tamanho do segmento 1:</label>
+            <input type="number" id="idReta1" name="nmReta1" value=""> <br><br>
+
+            <label for="idReta2">Tamanho do segmento 2:</label>
+            <input type="number" id="idReta2" name="nmReta2" value=""> <br><br>
+
+            <label for="idReta3">Tamanho do segmento 3:</label>
+            <input type="number" id="idReta3" name="nmReta3" value=""> <br><br>
+
+            <input type="button" value="É um triângulo?" onclick="analisarMedidas()"><br><br>
+
+            <output id="idOut"></output><br>
+
+
+        </fieldset>
+
+    </form>
+    <script>
+
+        function analisarMedidas() {
+            let reta1 = Number(document.getElementById("idReta1").value)
+            let reta2 = Number(document.getElementById("idReta2").value)
+            let reta3 = Number(document.getElementById("idReta3").value)
+
+            let out = document.getElementById("idOut")
+
+            if(reta1 < reta2+reta3 && reta2 < reta1+reta3 && reta3 < reta1+reta2){
+                out.value = "É possível formar um triângulo"
+            }else{
+                out.value = "Não é possível formar um triângulo"
+            }
+        }
+
+    </script>
+</body>
+
+</html>
