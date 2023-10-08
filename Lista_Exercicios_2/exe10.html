@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exe10</title>
 </head>
+
 <body>
     <form action="">
         <label for="idUsuario">Usuário:</label>
@@ -20,29 +22,34 @@
     </form>
     <script>
 
-        
+        var contadorTentativa = 0;
 
-        function verificarUsuario(){
+        function verificarUsuario() {
             let Aluno1 = "Trocar123"
             let Aluno2 = "Senha@123"
             let Aluno3 = "123Trocar"
-            
-            
+
+
             let usuario = document.getElementById("idUsuario").value;
             let senha = document.getElementById("idSenha").value;
 
-            if( (usuario !== "Aluno1" && usuario !== "Aluno2" && usuario !== "Aluno3")){
-                document.getElementById("idOutputMensagem").value = ("Usuário não cadastrado")
+            if (contadorTentativa<=3) {
+                if ((usuario !== "Aluno1" && usuario !== "Aluno2" && usuario !== "Aluno3")) {
+                    document.getElementById("idOutputMensagem").value = ("Usuário não cadastrado")
 
-            }else{
-                if((usuario=="Aluno1" && senha=="Trocar123") || 
-                   (usuario=="Aluno2" && senha=="Senha@123") ||
-                   (usuario=="Aluno3" && senha=="123Trocar")){
-                    document.getElementById("idOutputMensagem").value = ("Acesso Permitido")
+                } else {
+                    if ((usuario == "Aluno1" && senha == "Trocar123") ||
+                        (usuario == "Aluno2" && senha == "Senha@123") ||
+                        (usuario == "Aluno3" && senha == "123Trocar")) {
+                        document.getElementById("idOutputMensagem").value = ("Acesso Permitido")
 
-                }else{
-                    document.getElementById("idOutputMensagem").value = ("Senha Incorreta")
+                    } else {
+                        document.getElementById("idOutputMensagem").value = ("Senha Incorreta")
+                        contadorTentativa++;
+                    }
                 }
+            }else{
+                document.getElementById("idOutputMensagem").value = ("Usuário Bloqueado")
             }
         }
 
@@ -50,4 +57,5 @@
 
     </script>
 </body>
+
 </html>

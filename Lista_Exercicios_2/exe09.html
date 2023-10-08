@@ -43,7 +43,7 @@
             <output id="idOutputMensagemEntrada1"></output><br>
             <input type="number" id="idEntrada1" name="nmEntrada1" value=""> <br><br>
 
-            <output id="idOutputMensagemEntrada2"></output><br>
+            <output id="idOutputMensagemEntrada2" disabled></output><br>
             <input type="number" id="idEntrada2" name="nmEntrada2" value=""> <br><br><br>
 
             <input type="button" value="Calcular" onclick="calcularArea()"><br><br><br>
@@ -65,9 +65,10 @@
 
         function escolherOpcao() {
             opcao = Number(document.getElementById("idEscolheNumero").value);
-
+            document.getElementById("idEntrada2").disabled = false
             switch (opcao) {
                 case 1: document.getElementById("idOutputMensagemEntrada1").value = ("Informe o raio:")
+                    document.getElementById("idEntrada2").disabled = true;
                     break
                 case 2: document.getElementById("idOutputMensagemEntrada1").value = ("Informe a base:")
                     document.getElementById("idOutputMensagemEntrada2").value = ("Informe a altura:")
@@ -76,6 +77,7 @@
                     document.getElementById("idOutputMensagemEntrada2").value = ("Informe a altura:")
                     break
                 case 4: document.getElementById("idOutputMensagemEntrada1").value = ("Informe o lado:")
+                document.getElementById("idEntrada2").disabled = true
                     break
                 default: document.getElementById("idOutputMensagem").value = ("Opção não encontrada")
                     break
