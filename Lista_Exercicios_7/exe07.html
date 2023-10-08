@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe07</title>
+</head>
+
+<body>
+
+    <label for="idJogador">Jogador:</label>
+    <input type="text" id="idJogador" name="nmJogador" value="">
+
+    <input type="button" value="Adicionar jogador" onclick="adicionarJogador()"><br><br>
+
+
+    <output id="idOut"></output><br><br>
+
+    <label for="idCapital">Capital:</label>
+    <input type="text" id="idCapital" name="nmCapital" value=""> <br><br>
+
+    <input type="button" value="Sortear Estado" onclick="sortearEstado()" id="idComecar">
+
+    <input type="button" value="Responder" onclick="responder()"><br><br>
+
+    <input type="button" value="Finalizar jogo" onclick="finalizar()"><br><br>
+
+
+
+    <script>
+        /*Crie um jogo de perguntas e respostas. O programa deverá sortear aleatoriamente 
+        um estado brasileiro e o jogador deverá responder informando qual é a respectiva capital.
+
+        Cadastrar todos os estados Brasileiros e suas respectivas capitais.
+        Permitir 4 jogadores.
+        A cada acerto é somado 1 ponto para o jogador.
+        Ao final do jogo, informar quem ganhou e sua respectiva pontuação (poderá haver empates).
+        Apresentar os resultados em ordem decrescente (do primeiro ao ultimo colocado).*/
+
+        let out = document.getElementById("idOut");
+
+        var estados = ["Rio Grande do Sul", "Santa Catarina", "Paraná", "São Paulo", "Minas Gerais", "Rio de Janeiro", "Espírito Santo",
+            "Mato Grosso", "Mato Grosso do Sul", "Goias", "Distrito Federal", "Acre", "Alagoas",
+            "Amapá", "Amazonas", "Bahia", "Ceará", "Maranhão", "Pará", "Paraíba", "Pernambuco", "Piaui", "Rio GRande do Norte",
+            "Rondônia", "Roraima", "Sergipe", "Tocantins"];
+        var capitais = ["Porto Alegre", "Florianópolis", "Curitiba", "São Paulo", "Belo Horizonte", "Rio de Janeiro", "Vitória",
+            "Cuiabá", "Campo Grande", "Goiânia", "Brasília", "Rio Branco", "Maceió", "Macapá", "Manaus",
+            "Salvador", "Fortaleza", "São Luís", "Belém", "João Pessoa", "Recife", "Teresina", "Natal",
+            "Porto Velho", "Boa Vista", "Aracaju", "Palmas"]
+
+        let contadorVezes = 0;
+        let nomeJogadores = [];
+        let pontuacao = [0, 0, 0, 0];
+
+
+        function adicionarJogador() {
+            let jogador = document.getElementById("idJogador").value
+
+            if (contadorVezes < 4) {
+                nomeJogadores[contadorVezes] = jogador;
+                console.log(nomeJogadores)
+            } else {
+                out.value = "Não é possivel adicionar mais um jogador"
+            }
+
+            contadorVezes++
+        }
+
+        function sortearNumero(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            let numeroAleatorioSorteado = Math.floor(Math.random() * (max - min + 1) + min);
+            return numeroAleatorioSorteado
+        }
+
+        let contJogador = 0;
+        let estadoSorteado = 0;
+        let numeroSorteado = 0;
+
+        function sortearEstado() {
+            numeroSorteado = sortearNumero(0, 26);
+            console.log(numeroSorteado)
+            out.value = nomeJogadores[contJogador] + ": " + "Estado: " + estados[numeroSorteado];
+            console.log(estadoSorteado)
+            //document.getElementById("idComecar").disabled = true
+        }
+
+        function responder() {
+            let capital = document.getElementById("idCapital").value
+
+            if (capitais[numeroSorteado] == capital) {
+                pontuacao[contJogador] = pontuacao[contJogador] + 1;
+
+            }
+
+            console.log(pontuacao)
+            if (contJogador < 3) {
+                contJogador++;
+            } else {
+                contJogador = 0;
+            }
+
+        }
+
+        function ordenandoInverso(funcao) {
+            let decrescente = [];
+            let bolha = 0;
+
+            // ordenando para crescente
+            for (let index = 0; index < 4; index++) {
+                if (funcao[index] < funcao[index - 1]) {
+                    bolha = funcao[index];
+                    funcao[index] = funcao[index - 1];
+                    funcao[index - 1] = bolha;
+                    bolha = 0;
+                    index = 0;
+                }
+            }
+
+            // fazendo vetor decrescente
+            let contInv = 3;
+            for (let cont = 0; cont < 4; cont++) {
+                decrescente[contInv] = funcao[cont]
+                contInv--
+            }
+
+            return decrescente
+        }
+
+
+        function finalizar() {
+
+            let pontuacaoJogador0 = pontuacao[0]
+            let pontuacaoJogador1 = pontuacao[1]
+            let pontuacaoJogador2 = pontuacao[2]
+            let pontuacaoJogador3 = pontuacao[3]
+            let nomesDescrescente = []
+            let pontuacaoDecrescente = ordenandoInverso(pontuacao)
+
+           
+
+
+            for (let index = 0; index < 4; index++) {
+                if (pontuacaoDecrescente[index]== pontuacaoJogador0) {
+                    nomesDescrescente[index] = nomeJogadores[0]
+                } else if(pontuacaoDecrescente[index]== pontuacaoJogador1){
+                    nomesDescrescente[index] = nomeJogadores[1]
+                }else if(pontuacaoDecrescente[index]== pontuacaoJogador2){
+                    nomesDescrescente[index] = nomeJogadores[2]
+                }else if(pontuacaoDecrescente[index]== pontuacaoJogador3){
+                    nomesDescrescente[index] = nomeJogadores[3]
+                }
+
+                console.log(nomesDescrescente)
+            }
+
+
+            out.value = nomesDescrescente + "\n     -     " + pontuacaoDecrescente
+        }
+
+    </script>
+</body>
+
+</html>

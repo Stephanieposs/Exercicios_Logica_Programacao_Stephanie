@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe06</title>
+</head>
+
+<body>
+    <div id="idCadastroAlunos">
+        <fieldset>
+            <legend>Cadastro de alunos</legend>
+            <label for="idNomeAluno">Nome do aluno:</label>
+            <input type="text" id="idNomeAluno" name="nmNomeAluno" value=""> <br><br>
+
+            <label for="idEndereco">Endereço:</label>
+            <input type="text" id="idEndereco" name="nmEndereco" value=""> <br><br>
+
+            <label for="idNomeMae">Nome da mãe:</label>
+            <input type="text" id="idNomeMae" name="nmNomeMae" value=""> <br><br>
+
+            <label for="idNomePai">Nome do pai:</label>
+            <input type="text" id="idNomePai" name="nmNomePai" value=""> <br><br>
+
+            <label for="idTelefone">Telefone:</label>
+            <input type="number" id="idTelefone" name="nmTelefone" value=""> <br><br>
+
+            <input type="button" value="Cadastrar" onclick="cadastro()"><br><br>
+
+        </fieldset>
+    </div>
+    <div id="idCadastroNotas" hidden>
+        <fieldset>
+            <legend>Cadastrar notas</legend>
+
+            <label for="idNota1">Nota 1:</label>
+            <input type="number" id="idNota1" name="nmNota1" value=""> <br><br>
+
+            <label for="idNota2">Nota 2:</label>
+            <input type="number" id="idNota2" name="nmNota2" value=""> <br><br>
+
+            <label for="idNota3">Nota 3:</label>
+            <input type="number" id="idNota3" name="nmNota3" value=""> <br><br>
+
+            <label for="idNota4">Nota 4:</label>
+            <input type="number" id="idNota4" name="nmNota4" value=""> <br><br>
+
+            <input type="button" value="Inserir notas" onclick="pegarNota()"><br><br>
+            
+            <input type="button" value="Consultar Cadastro" onclick="abrirCadastro()"><br><br>
+            
+        </fieldset>
+    </div>
+    <div id="idConsultarCadastro" hidden>
+        <fieldset>
+            <legend>Consultar cadastro</legend>
+
+            <label for="idNomeCadastroAluno">Nome do aluno:</label><br>
+            <input type="text" id="idNomeCadastroAluno" name="nmNomeCadastroAluno" value=""><br><br>
+            <input type="button" value="Consultar Cadastro" onclick="consultarCadastro()"><br><br>
+
+            <output id="idOutNomeAluno"></output><br>
+            <output id="idOutEndereço"></output><br>
+            <output id="idOutNomeMae"></output><br>
+            <output id="idOutNomePai"></output><br>
+            <output id="idOutTelefone"></output><br>
+            <output id="idOutNotas"></output><br><br>
+
+            <input type="button" value="Novo Cadastro" onclick="novoCadastro()"><br><br>
+
+        </fieldset>
+    </div>
+    <script>
+        let out = document.getElementById("idOut");
+
+        let notas1 = [];
+        let notas2 = [];
+        let notas3 = [];
+        let notas4 = [];
+
+        let nomeAlunos = [];
+        let enderecos = [];
+        let nomeMaes = [];
+        let nomePais = [];
+        let telefones = [];
+
+        let contadorVezes = 0;
+
+
+        function cadastro() {
+            let nomeAluno = (document.getElementById("idNomeAluno").value);
+            let endereco = (document.getElementById("idEndereco").value);
+            let nomeMae = (document.getElementById("idNomeMae").value);
+            let nomePai = (document.getElementById("idNomePai").value);
+            let telefone = Number(document.getElementById("idTelefone").value);
+
+            nomeAlunos[contadorVezes] = nomeAluno
+            enderecos[contadorVezes] = endereco
+            nomeMaes[contadorVezes] = nomeMae
+            nomePais[contadorVezes] = nomePai
+            telefones[contadorVezes] = telefone
+
+            document.getElementById("idCadastroAlunos").hidden = true
+            document.getElementById("idCadastroNotas").hidden = false
+            document.getElementById("idConsultarCadastro").hidden = true
+        }
+        
+        function pegarNota() {
+            let nota1 = Number(document.getElementById("idNota1").value);
+            let nota2 = Number(document.getElementById("idNota2").value);
+            let nota3 = Number(document.getElementById("idNota3").value);
+            let nota4 = Number(document.getElementById("idNota4").value);
+
+            notas1[contadorVezes] = nota1;
+            notas2[contadorVezes] = nota2;
+            notas3[contadorVezes] = nota3;
+            notas4[contadorVezes] = nota4;
+
+            contadorVezes++
+
+        }
+
+        function consultarCadastro() {
+            let nomeCadastroAluno = (document.getElementById("idNomeCadastroAluno").value);
+
+            for (let index = 0; index < nomeAlunos.length; index++) {
+                if (nomeAlunos[index] == nomeCadastroAluno) {
+                    document.getElementById("idOutNomeAluno").value = "Nome do aluno: " + nomeAlunos[index]
+                    document.getElementById("idOutEndereço").value = "Endereço: " + enderecos[index]
+                    document.getElementById("idOutNomeMae").value = "Nome da mãe: " + nomeMaes[index]
+                    document.getElementById("idOutNomePai").value = "Nome do pai: " + nomePais[index]
+                    document.getElementById("idOutTelefone").value = "Telefone: " + telefones[index]
+                    document.getElementById("idOutNotas").value = "Notas: " + notas1[index] + ", " + notas2[index] + ", " + notas3[index] + ", " + notas4[index]
+                }
+            }
+        }
+
+        function novoCadastro(){
+            document.getElementById("idCadastroAlunos").hidden = false
+            document.getElementById("idCadastroNotas").hidden = true
+            document.getElementById("idConsultarCadastro").hidden = true
+        }
+
+        function abrirCadastro(){
+            document.getElementById("idCadastroAlunos").hidden = true
+            document.getElementById("idCadastroNotas").hidden = true
+            document.getElementById("idConsultarCadastro").hidden = false
+        }
+
+    </script>
+</body>
+
+</html>
