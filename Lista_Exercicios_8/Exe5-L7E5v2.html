@@ -54,35 +54,32 @@
         function mostrarOrdem() {
             let ordem = document.querySelector("input[name=nmOrdem]:checked").value
 
-            let decrescente = [];
-            let bolha = 0;
-
-
             if (ordem == "Cresc") {
-                // ordenando numeros[] para crescente
-                for (let index = 0; index < 10; index++) {
-                    if (numeros[index] < numeros[index - 1]) {
-                        bolha = numeros[index];
-                        numeros[index] = numeros[index - 1];
-                        numeros[index - 1] = bolha;
-                        bolha = 0;
-                        index = 0;
+                numeros.sort(function (a, b) {
+                    if (a > b) {
+                        return 1
                     }
-                }
+                    if (a < b) {
+                        return -1
+                    }
+                    return 0
+                })
                 console.log(numeros)
                 out.value = "Crescente: " + numeros
-            } else {
-                // fazendo vetor decrescente
-                let contInv = 9;
-                for (let cont = 0; cont < 10; cont++) {
-                    decrescente[contInv] = numeros[cont]
-                    contInv--
-                }
+            }else{
 
-                console.log(decrescente)
-                out.value = "Decrescente: " + decrescente
+                numeros.sort(function(a, b){
+                    if (a < b) {
+                        return 1
+                    }
+                    if (a > b) {
+                        return -1
+                    }
+                    return 0 
+                })
+                console.log(numeros)
+                out.value = "Decrescente: " + numeros
             }
-
 
         }
 
