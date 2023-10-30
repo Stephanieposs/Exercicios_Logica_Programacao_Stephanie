@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe03</title>
+</head>
+
+<body>
+    <label for="idNome">Nome:</label>
+    <input type="text" id="idNome" name="nmNome" value=""> <br><br>
+
+
+    <input type="radio" id="idSexoFem" name="nmSexo" value="F" checked>
+    <label for="idIdade">Feminino</label><br>
+
+    <input type="radio" id="idSexoMasc" name="nmSexo" value="M">
+    <label for="idIdade">Masculino</label><br><br>
+
+
+    <label for="idSalario">Salário:</label>
+    <input type="number" id="idSalario" name="nmSalario" value=""> <br><br>
+
+    <input type="button" value="Inserir dados" onclick="pegarDados()"><br><br>
+
+    <input type="button" value="Mostrar dados" onclick="mostrarMulheres5()"><br>
+
+    <output id="idOutNomes"></output><br>
+    <output id="idOutSalarios"></output>
+    <script>
+
+        var nomes = [];
+        var sexos = [];
+        var salarios = [];
+
+        var contadorVezes = 0;
+        var funcionarios = []
+
+        function pegarDados() {
+            let nome = document.getElementById("idNome").value;
+            let sexo = document.querySelector("input[name=nmSexo]:checked").value
+            let salario = Number(document.getElementById("idSalario").value);
+
+            
+
+            var funcionario = {
+                nomeF: nome,
+                sexoF: sexo,
+                salarioF: salario
+            }
+            funcionarios.push(funcionario)
+
+            
+
+            /*
+            nomes[contadorVezes] = nome;
+            sexos[contadorVezes] = sexo;
+            salarios[contadorVezes] = salario;
+            */
+
+            console.table(funcionario)
+            console.table(funcionarios)
+            
+            contadorVezes++
+
+        }
+
+        function mostrarMulheres5() {
+            let nomesMulheres5 = []
+            let salarioMulheres5 = []
+
+            var mulheres = funcionarios.filter(function(value, index, array){
+                if(funcionarios[index].salarioF > 5000 && funcionarios[index].sexoF == "F"){
+                    console.table(funcionarios[index])
+                    return mulheres = funcionarios[index]
+                    
+                }
+
+            })
+
+            console.table(mulheres)
+
+            var nomesM = "Nomes: ";
+            for(let cont=0; cont<mulheres.length; cont++){
+                nomesM+= mulheres[cont].nomeF + ", "
+            }
+
+            var salariosM = "Salários: ";
+            for(let cont=0; cont<mulheres.length; cont++){
+                salariosM+= mulheres[cont].salarioF + ", "
+            }
+
+            document.getElementById("idOutNomes").value = nomesM + "\n" + salariosM
+            //document.getElementById("idOutNomes").value = "  Nomes: " + "\n" + mulheres.nomeF + "  Salários:" + mulheres.salarioF
+            //document.getElementById("idOutIdades").value = idadesMenores
+
+        }
+
+    </script>
+</body>
+
+</html>
