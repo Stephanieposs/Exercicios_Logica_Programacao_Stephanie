@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe05</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        * {
+            margin-left: 5px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="idNumero">Número:</label><br>
+    <input type="number" id="idNumero" name="nmNumero" value=""> <br>
+
+
+    <label for="">Ordenar:</label><br>
+    <div class="form-check">
+        <input type="radio" class="form-check-input" id="idOrdemCresc" name="nmOrdem" value="Cresc" checked>
+        <label for="idOrdem">Crescente</label><br>
+    </div>
+    <div class="form-check">
+        <input type="radio" class="form-check-input" id="idOrdemDecresc" name="nmOrdem" value="Decres">
+        <label for="idOrdem">Decrescente</label><br><br>
+    </div>
+
+    <input type="button" value="Inserir número" class="btn btn-info" onclick="pegarNumero()">
+
+    <input type="button" value="Ordenar" class="btn btn-success" onclick="mostrarOrdem()"><br>
+
+    <output id="idOut"></output>
+
+    <script>
+        // a sequencia numérica do vetor num[] seja ordenada 
+        // corretamente em ordem crescente e decrescente respectivamente.
+
+        let out = document.getElementById("idOut");
+        var numeros = [];
+
+        var contadorVezes = 0;
+
+        function pegarNumero() {
+            let numero = Number(document.getElementById("idNumero").value);
+            numeros[contadorVezes] = numero;
+            contadorVezes++
+        }
+
+        function mostrarOrdem() {
+            let ordem = document.querySelector("input[name=nmOrdem]:checked").value
+
+            let decrescente = [];
+            let bolha = 0;
+
+
+            if (ordem == "Cresc") {
+                // ordenando numeros[] para crescente
+                for (let index = 0; index < 10; index++) {
+                    if (numeros[index] < numeros[index - 1]) {
+                        bolha = numeros[index];
+                        numeros[index] = numeros[index - 1];
+                        numeros[index - 1] = bolha;
+                        bolha = 0;
+                        index = 0;
+                    }
+                }
+                console.log(numeros)
+                out.value = "Crescente: " + numeros
+            } else {
+                // fazendo vetor decrescente
+                let contInv = 9;
+                for (let cont = 0; cont < 10; cont++) {
+                    decrescente[contInv] = numeros[cont]
+                    contInv--
+                }
+
+                console.log(decrescente)
+                out.value = "Decrescente: " + decrescente
+            }
+
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
