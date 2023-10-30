@@ -1,41 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>exe02</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        * {
+            margin-left: 5px;
+            margin-top: 5px;
+        }
+    </style>
 </head>
+
 <body>
-    <label for="idNome">Nome:</label>
-    <input type="text" id="idNome" name="nmNome" value=""> <br><br>
-    
-    <label for="idIdade">Idade:</label>
-    <input type="number" id="idIdade" name="nmIdade" value=""> <br><br>
+    <div class="mb-3">
+        <label for="idNome">Nome:</label><br>
+        <input type="text" id="idNome" name="nmNome" value=""> 
+    </div>
+    <div class="mb-3">
+        <label for="idIdade">Idade:</label><br>
+        <input type="number" id="idIdade" name="nmIdade" value=""> 
+    </div>
+    <input type="button" class="btn btn-primary" value="Inserir dados" onclick="pegarDados()">
 
-    <input type="button" value="Inserir dados" onclick="pegarDados()"><br><br>
-
-    <input type="button" value="Mostrar menores de idade" onclick="mostrarMenores()"><br>
+    <input type="button" class="btn btn-success" value="Mostrar menores de idade" onclick="mostrarMenores()"><br>
 
     <output id="idOutNomes"></output><br>
     <output id="idOutIdades"></output>
     <script>
-        
+
         var nomes = [];
         var idades = [];
-        
+
         var contadorVezes = 0;
 
         function pegarDados() {
             let nome = document.getElementById("idNome").value;
             let idade = Number(document.getElementById("idIdade").value);
-            
+
             nomes[contadorVezes] = nome;
             idades[contadorVezes] = idade;
 
             contadorVezes++
         }
 
-        function mostrarMenores(){
+        function mostrarMenores() {
             let nomesMenores = [];
             let idadesMenores = [];
             let contadorMenores = 0;
@@ -52,17 +64,17 @@
             }
             */
 
-            nomesMenores = nomes.filter(function (value, index, array){
-                if(idades[index]<18){
-                    return nomesMenores[contadorMenores] = array[index] ;
+            nomesMenores = nomes.filter(function (value, index, array) {
+                if (idades[index] < 18) {
+                    return nomesMenores[contadorMenores] = array[index];
                     contadorMenores++
                 }
-                
+
             });
 
-            idadesMenores = idades.filter(function (value, index, array){
-                if(idades[index]<18){
-                    return idadesMenores[contadorMenores] = "   "+array[index] + " ";
+            idadesMenores = idades.filter(function (value, index, array) {
+                if (idades[index] < 18) {
+                    return idadesMenores[contadorMenores] = "   " + array[index] + " ";
                 }
             });
 
@@ -77,4 +89,5 @@
 
     </script>
 </body>
+
 </html>

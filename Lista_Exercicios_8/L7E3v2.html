@@ -1,30 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>exe03</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        * {
+            margin-left: 5px;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 
 <body>
-    <label for="idNome">Nome:</label>
-    <input type="text" id="idNome" name="nmNome" value=""> <br><br>
+    <label for="idNome">Nome:</label><br>
+    <input type="text" id="idNome" name="nmNome" value=""> <br>
 
 
-    <input type="radio" id="idSexoFem" name="nmSexo" value="F" checked>
+    <input type="radio" id="idSexoFem" id="gridRadios2" name="gridRadios" name="nmSexo" value="F" checked>
     <label for="idIdade">Feminino</label><br>
 
-    <input type="radio" id="idSexoMasc" name="nmSexo" value="M">
-    <label for="idIdade">Masculino</label><br><br>
+    <input type="radio" id="idSexoMasc" id="gridRadios2" name="gridRadios" name="nmSexo" value="M">
+    <label for="idIdade">Masculino</label><br>
 
 
-    <label for="idSalario">Salário:</label>
+    <label for="idSalario">Salário:</label><br>
     <input type="number" id="idSalario" name="nmSalario" value=""> <br><br>
 
-    <input type="button" value="Inserir dados" onclick="pegarDados()"><br><br>
+    <input type="button" class="btn btn-secondary" value="Inserir dados" onclick="pegarDados()">
 
-    <input type="button" value="Mostrar dados" onclick="mostrarMulheres5()"><br>
+    <input type="button" class="btn btn-secondary" value="Mostrar dados" onclick="mostrarMulheres5()"><br>
 
     <output id="idOutNomes"></output><br>
     <output id="idOutSalarios"></output>
@@ -57,13 +65,13 @@
             let nomesMulheres5 = []
             let salarioMulheres5 = []
 
-            nomesMulheres5 = nomes.filter(function(value, index, array){
+            nomesMulheres5 = nomes.filter(function (value, index, array) {
                 if (salarios[index] > 5000 && sexos[index] == "F") {
                     return nomesMulheres5 = (nomes[index])
                 }
             })
 
-            salarioMulheres5 = salarios.filter(function(value, index, array){
+            salarioMulheres5 = salarios.filter(function (value, index, array) {
                 if (salarios[index] > 5000 && sexos[index] == "F") {
                     return salarioMulheres5 = (salarios[index])
                 }
@@ -84,9 +92,9 @@
 
             console.table(nomesMulheres5)
             console.table(salarioMulheres5)
-            
 
-            document.getElementById("idOutNomes").value ="  Nomes: " + "\n" + nomesMulheres5 + "  Salários:" + salarioMulheres5
+
+            document.getElementById("idOutNomes").value = "  Nomes: " + "\n" + nomesMulheres5 + "  Salários:" + salarioMulheres5
             //document.getElementById("idOutIdades").value = idadesMenores
         }
 
