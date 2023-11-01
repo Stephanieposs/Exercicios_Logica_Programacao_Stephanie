@@ -52,18 +52,6 @@
             let idadesMenores = [];
             let contadorMenores = 0;
 
-            /*
-            for(let index = 0; index<=nomes.length; index++){
-                if(idades[index] <18){
-                    
-                    nomesMenores[contadorMenores] = nomes[index] ;
-                    idadesMenores[contadorMenores] = "   "+idades[index] + " ";
-                    contadorMenores++
-
-                }
-            }
-            */
-
             nomesMenores = nomes.filter(function (value, index, array) {
                 if (idades[index] < 18) {
                     return nomesMenores[contadorMenores] = array[index];

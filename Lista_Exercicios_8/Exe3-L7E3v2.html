@@ -20,19 +20,19 @@
     <input type="text" id="idNome" name="nmNome" value=""> <br>
 
 
-    <input type="radio" id="idSexoFem" id="gridRadios2" name="gridRadios" name="nmSexo" value="F" checked>
+    <input type="radio" id="idSexoFem" name="nmSexo" value="F" checked>
     <label for="idIdade">Feminino</label><br>
 
-    <input type="radio" id="idSexoMasc" id="gridRadios2" name="gridRadios" name="nmSexo" value="M">
+    <input type="radio" id="idSexoMasc" name="nmSexo" value="M">
     <label for="idIdade">Masculino</label><br>
 
 
     <label for="idSalario">Salário:</label><br>
     <input type="number" id="idSalario" name="nmSalario" value=""> <br><br>
 
-    <input type="button" class="btn btn-secondary" value="Inserir dados" onclick="pegarDados()">
+    <input type="button" class="btn btn-outline-success" value="Inserir dados" onclick="pegarDados()">
 
-    <input type="button" class="btn btn-secondary" value="Mostrar dados" onclick="mostrarMulheres5()"><br>
+    <input type="button" class="btn btn-outline-danger" value="Mostrar dados" onclick="mostrarMulheres5()"><br>
 
     <output id="idOutNomes"></output><br>
     <output id="idOutSalarios"></output>
@@ -76,26 +76,11 @@
                     return salarioMulheres5 = (salarios[index])
                 }
             })
-
-
-
-
-            /*
-            for (let index = 0; index <= nomes.length; index++) {
-                if (salarios[index] > 5000 && sexos[index] == "F") {
-
-                    dadosMulheres5 += ("Nome: "+nomes[index]+" - Salário: "+salarios[index]+ "\n ")
-
-                }
-            }
-            */
-
             console.table(nomesMulheres5)
             console.table(salarioMulheres5)
 
-
             document.getElementById("idOutNomes").value = "  Nomes: " + "\n" + nomesMulheres5 + "  Salários:" + salarioMulheres5
-            //document.getElementById("idOutIdades").value = idadesMenores
+
         }
 
 

@@ -59,19 +59,10 @@
             }
             funcionarios.push(funcionario)
 
-
-
-            /*
-            nomes[contadorVezes] = nome;
-            sexos[contadorVezes] = sexo;
-            salarios[contadorVezes] = salario;
-            */
-
             console.table(funcionario)
             console.table(funcionarios)
 
             contadorVezes++
-
         }
 
         function mostrarMulheres5() {
@@ -82,9 +73,7 @@
                 if (funcionarios[index].salarioF > 5000 && funcionarios[index].sexoF == "F") {
                     console.table(funcionarios[index])
                     return mulheres = funcionarios[index]
-
                 }
-
             })
 
             console.table(mulheres)
@@ -100,9 +89,6 @@
             }
 
             document.getElementById("idOutNomes").value = nomesM + "\n" + salariosM
-            //document.getElementById("idOutNomes").value = "  Nomes: " + "\n" + mulheres.nomeF + "  Salários:" + mulheres.salarioF
-            //document.getElementById("idOutIdades").value = idadesMenores
-
         }
 
     </script>

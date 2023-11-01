@@ -32,7 +32,7 @@
 
         var datalist = document.getElementById("idFrutas")
 
-        for(let index=0; index<frutas.length;index++){
+        frutas.forEach(function(element,index){
             let option = document.createElement("option")
             option.textContent = frutas[index];
             option.id = ("id"+frutas[index].toString());
@@ -41,7 +41,7 @@
             datalist.appendChild(option)
 
             console.log(option)
-        }
+        })
 
         console.log(datalist)
 
